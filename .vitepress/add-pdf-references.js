@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename);
 
 // 获取项目根目录
 const rootDir = path.resolve(__dirname, '..');
-const assetsDir = path.join(rootDir, 'assets');
+const assetsDir = path.join(rootDir, 'pages/public');
 const referencesFile = path.join(rootDir, 'pages', '90-参考资料.md');
 
 // 读取assets目录中的所有PDF文件
@@ -31,7 +31,7 @@ function generatePdfList(pdfFiles) {
 
   pdfFiles.forEach(file => {
     const fileName = path.basename(file, '.pdf');
-    const fileUrl = `/assets/${encodeURIComponent(file)}`;
+    const fileUrl = `./${encodeURIComponent(file)}`;
     content += `- [${fileName}](${fileUrl})\n`;
   });
 

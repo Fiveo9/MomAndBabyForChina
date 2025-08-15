@@ -3,8 +3,9 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "vitepress dev",
-    "build": "vitepress build",
+    "pdf": "node .vitepress/add-pdf-references.js",
+    "dev": "pnpm run pdf && vitepress dev",
+    "build": "pnpm run pdf && vitepress build",
     "preview": "vitepress preview"
   },
   "dependencies": {

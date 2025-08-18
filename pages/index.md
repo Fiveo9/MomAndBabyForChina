@@ -6,7 +6,7 @@ hero:
   text: "妈妈和宝宝的全面指南"
   tagline: "从待产到育儿的完整手册"
   image:
-    src: ./images/logo.png
+    src: ./logo.png
     alt: 孕期指南 Logo
   actions:
     - theme: brand

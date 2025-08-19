@@ -70,6 +70,10 @@ export default defineConfig({
         ]
       },
       {
+        text: '育儿优惠政策',
+        link: '/80-育儿优惠政策'
+      },
+      {
         text: '参考资料',
         link: '/90-参考资料'
       }

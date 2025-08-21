@@ -69,3 +69,34 @@ table th.fixed__td.fixed__right {
 .fixed__td.fixed__right {
   border-left: 1px solid var(--vp-c-border);
 }
+
+/* 赞助按钮相关样式优化 */
+.sponsor-button-container {
+  /* 确保按钮不会被其他元素遮挡 */
+  z-index: 100;
+}
+
+/* 确保弹窗在最顶层 */
+.sponsor-modal-overlay {
+  z-index: 1000;
+}
+
+/* 防止赞助按钮与侧边栏重叠 */
+@media (min-width: 1440px) {
+  .sponsor-button-container {
+    right: calc((100vw - var(--vp-layout-max-width)) / 2 - 60px);
+  }
+}
+
+/* 当侧边栏展开时调整按钮位置 */
+.VPSidebar.open~.sponsor-button-container {
+  right: 280px;
+  transition: right 0.3s ease;
+}
+
+/* 优化移动端体验 */
+@media (max-width: 767px) {
+  .sponsor-button-container {
+    display: none !important;
+  }
+}

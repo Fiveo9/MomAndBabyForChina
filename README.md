@@ -33,3 +33,9 @@
 [20-常见品牌与价格](pages/20-%E5%B8%B8%E8%A7%81%E5%93%81%E7%89%8C%E4%B8%8E%E4%BB%B7%E6%A0%BC.md)
 
 [90-参考资料](pages/90-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99.md)
+
+
+
+#### 赞助
+
+<img src="https://i0.hdslb.com/bfs/openplatform/82d1a037e4c40044188bfbfffd71b867b3ede97c.jpg" width="400" />

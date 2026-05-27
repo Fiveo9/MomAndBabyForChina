@@ -64,6 +64,7 @@ export default defineConfig({
         text: '母婴用品',
         items: [
           { text: '婴幼儿奶粉', link: '/11-0-奶粉' },
+          { text: '婴幼儿奶粉（2段详细比较）', link: '/11-0-1-奶粉（2 段）.md' },
           { text: '安全座椅', link: '/11-1-安全座椅' },
           { text: '婴儿推车', link: '/11-2-婴儿推车' },
           { text: '母婴用品相关资料', link: '/12-母婴用品相关资料' },

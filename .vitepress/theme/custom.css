@@ -2,72 +2,113 @@
   --vp-layout-max-width: 90vw;
 }
 
-.vp-doc table {
-  border-collapse: separate;
-}
-
 /* 内容区铺满 */
 .VPDoc.has-aside .content-container {
   max-width: 100% !important;
   position: relative;
 }
 
-table {
-  table-layout: fixed;
+.table-plugin {
+  margin: 16px 0;
+}
+
+.table-plugin__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  padding: 8px 0;
+}
+
+.table-plugin__check {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--vp-c-text-2);
+  font-size: 13px;
+  line-height: 1.4;
+  user-select: none;
+}
+
+.table-plugin__check input {
+  width: 14px;
+  height: 14px;
+  margin: 0;
+  accent-color: var(--vp-c-brand-1);
+}
+
+.table-plugin__export {
+  border: 1px solid var(--vp-c-border);
+  border-radius: 6px;
+  padding: 4px 10px;
+  color: var(--vp-c-text-1);
+  background: var(--vp-c-bg);
+  font-size: 13px;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+}
+
+.table-plugin__export:hover {
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+  background: var(--vp-c-default-soft);
+}
+
+.table-plugin__scroll {
+  overflow: auto;
+  max-height: 80vh;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+}
+
+.vp-doc .table-plugin__scroll table {
+  display: table;
+  width: max-content;
+  min-width: 100%;
+  table-layout: auto;
+  border-collapse: separate;
+  margin: 0;
+}
+
+.vp-doc .table-plugin__scroll th,
+.vp-doc .table-plugin__scroll td {
+  min-width: 120px;
+  max-width: 360px;
+  background: var(--vp-c-bg);
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  vertical-align: top;
+}
+
+.vp-doc .table-plugin__scroll img {
+  max-width: 220px;
+  height: auto;
 }
 
 table.table__fixed-header {
-  table-layout: fixed;
+  table-layout: auto;
 }
 
 /* 列首永远固定在头部  */
 table.table__fixed-header thead tr th {
   position: sticky;
   top: 0;
-}
-
-/* 固定列样式 */
-.fixed__td {
-  position: sticky;
-  z-index: 1;
-  background-color: inherit;
-}
-
-/* 固定左侧列 */
-.fixed__left {
-  left: 0;
-}
-
-/* 固定右侧列 */
-.fixed__right {
-  right: 0;
-}
-
-/* 表头固定列需要更高的z-index */
-table.table__fixed-header thead tr th.fixed__td {
   z-index: 2;
+  background: var(--vp-c-bg-soft);
 }
 
-/* 多个固定左列的位置计算 */
-table td.fixed__td.fixed__left,
-table th.fixed__td.fixed__left {
+table.table__fixed-first-column tr > :first-child {
+  position: sticky;
   left: 0;
+  z-index: 1;
+  background: var(--vp-c-bg);
+  box-shadow: 1px 0 0 var(--vp-c-border);
 }
 
-/* 多个固定右列的位置计算 */
-table td.fixed__td.fixed__right,
-table th.fixed__td.fixed__right {
-  right: 0;
-}
-
-
-/* 固定列边框效果 */
-.fixed__td.fixed__left {
-  border-right: 1px solid var(--vp-c-border);
-}
-
-.fixed__td.fixed__right {
-  border-left: 1px solid var(--vp-c-border);
+table.table__fixed-header.table__fixed-first-column thead tr th:first-child {
+  z-index: 3;
 }
 
 /* 赞助按钮相关样式优化 */

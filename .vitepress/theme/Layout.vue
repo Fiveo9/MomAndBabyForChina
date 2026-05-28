@@ -104,25 +104,135 @@ const getTableFromAction = (target) => {
   return root?.querySelector("table") || null;
 };
 
-const handleTableToolChange = (event) => {
+const getTableRootFromAction = (target) => target.closest("[data-table-plugin]");
+
+const getTableSize = (table) => {
+  const rows = Array.from(table.rows);
+  const columns = rows.reduce((max, row) => Math.max(max, row.cells.length), 0);
+
+  return { rows: rows.length, columns };
+};
+
+const clampFixedCount = (value, max) => {
+  const count = Number.parseInt(value, 10);
+
+  if (Number.isNaN(count)) return 0;
+
+  return Math.min(Math.max(count, 0), max);
+};
+
+const clearTableSticky = (table) => {
+  table.classList.remove("table__has-fixed-rows", "table__has-fixed-columns");
+  table.querySelectorAll("[data-table-plugin-sticky]").forEach((cell) => {
+    delete cell.dataset.tablePluginSticky;
+    delete cell.dataset.tablePluginStickyRow;
+    delete cell.dataset.tablePluginStickyColumn;
+    cell.style.position = "";
+    cell.style.top = "";
+    cell.style.left = "";
+    cell.style.zIndex = "";
+  });
+};
+
+const getColumnOffsets = (rows, columnCount) => {
+  const offsets = [];
+  let offset = 0;
+
+  for (let index = 0; index < columnCount; index += 1) {
+    offsets[index] = offset;
+    offset += rows.find((row) => row.cells[index])?.cells[index]?.getBoundingClientRect().width || 0;
+  }
+
+  return offsets;
+};
+
+const applyTableSticky = (table, fixedRows, fixedColumns) => {
+  const rows = Array.from(table.rows);
+  const { rows: maxRows, columns: maxColumns } = getTableSize(table);
+  const rowCount = clampFixedCount(fixedRows, maxRows);
+  const columnCount = clampFixedCount(fixedColumns, maxColumns);
+  const columnOffsets = getColumnOffsets(rows, columnCount);
+  let rowOffset = 0;
+
+  clearTableSticky(table);
+
+  table.classList.toggle("table__has-fixed-rows", rowCount > 0);
+  table.classList.toggle("table__has-fixed-columns", columnCount > 0);
+
+  rows.forEach((row, rowIndex) => {
+    const isFixedRow = rowIndex < rowCount;
+    const top = rowOffset;
+
+    if (isFixedRow) {
+      rowOffset += row.getBoundingClientRect().height;
+    }
+
+    Array.from(row.cells).forEach((cell, columnIndex) => {
+      const isFixedColumn = columnIndex < columnCount;
+
+      if (!isFixedRow && !isFixedColumn) return;
+
+      cell.dataset.tablePluginSticky = "";
+      cell.style.position = "sticky";
+
+      if (isFixedRow) {
+        cell.dataset.tablePluginStickyRow = "";
+        cell.style.top = `${top}px`;
+      }
+
+      if (isFixedColumn) {
+        cell.dataset.tablePluginStickyColumn = "";
+        cell.style.left = `${columnOffsets[columnIndex]}px`;
+      }
+
+      cell.style.zIndex = isFixedRow && isFixedColumn ? "4" : isFixedRow ? "3" : "2";
+    });
+  });
+};
+
+const syncTablePluginControls = (root) => {
+  const table = root.querySelector("table");
+  const rowsInput = root.querySelector('[data-table-plugin-action="fixed-rows"]');
+  const columnsInput = root.querySelector('[data-table-plugin-action="fixed-columns"]');
+
+  if (!(table instanceof HTMLTableElement) || !(rowsInput instanceof HTMLInputElement) || !(columnsInput instanceof HTMLInputElement)) return;
+
+  const { rows, columns } = getTableSize(table);
+  const fixedRows = clampFixedCount(rowsInput.value, rows);
+  const fixedColumns = clampFixedCount(columnsInput.value, columns);
+
+  rowsInput.max = String(rows);
+  columnsInput.max = String(columns);
+  rowsInput.value = String(fixedRows);
+  columnsInput.value = String(fixedColumns);
+
+  applyTableSticky(table, fixedRows, fixedColumns);
+};
+
+const syncAllTablePluginControls = () => {
+  document.querySelectorAll("[data-table-plugin]").forEach((root) => {
+    syncTablePluginControls(root);
+  });
+};
+
+let stickyRefreshFrame = 0;
+
+const requestStickyRefresh = () => {
+  cancelAnimationFrame(stickyRefreshFrame);
+  stickyRefreshFrame = requestAnimationFrame(syncAllTablePluginControls);
+};
+
+const handleTableToolInput = (event) => {
   const target = event.target;
 
   if (!(target instanceof HTMLInputElement)) return;
 
   const action = target.dataset.tablePluginAction;
-  const table = getTableFromAction(target);
+  const root = getTableRootFromAction(target);
 
-  if (!table) return;
+  if (!root || (action !== "fixed-rows" && action !== "fixed-columns")) return;
 
-  if (action === "fixed-header") {
-    table.classList.toggle("table__fixed-header", target.checked);
-    target.setAttribute("aria-pressed", String(target.checked));
-  }
-
-  if (action === "fixed-first-column") {
-    table.classList.toggle("table__fixed-first-column", target.checked);
-    target.setAttribute("aria-pressed", String(target.checked));
-  }
+  syncTablePluginControls(root);
 };
 
 const handleTableToolClick = (event) => {
@@ -142,17 +252,26 @@ const handleTableToolClick = (event) => {
 // Apply medium zoom on load
 onMounted(() => {
   setupMediumZoom();
-  document.addEventListener("change", handleTableToolChange);
+  syncAllTablePluginControls();
+  document.addEventListener("input", handleTableToolInput);
+  document.addEventListener("change", handleTableToolInput);
   document.addEventListener("click", handleTableToolClick);
+  window.addEventListener("resize", requestStickyRefresh);
 });
 
 onBeforeUnmount(() => {
-  document.removeEventListener("change", handleTableToolChange);
+  cancelAnimationFrame(stickyRefreshFrame);
+  document.removeEventListener("input", handleTableToolInput);
+  document.removeEventListener("change", handleTableToolInput);
   document.removeEventListener("click", handleTableToolClick);
+  window.removeEventListener("resize", requestStickyRefresh);
 });
 
 // Subscribe to route changes to re-apply medium zoom effect
-router.onAfterRouteChanged = setupMediumZoom;
+router.onAfterRouteChanged = () => {
+  setupMediumZoom();
+  requestStickyRefresh();
+};
 </script>
 
 <template>

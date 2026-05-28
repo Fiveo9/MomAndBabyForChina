@@ -15,8 +15,8 @@ function tablePlugin(md) {
   md.renderer.rules.table_open = function (tokens, idx, options, env, renderer) {
     let result = '<div class="table-plugin" data-table-plugin>';
     result += '<div class="table-plugin__toolbar" aria-label="表格工具">';
-    result += '<label class="table-plugin__check"><input type="checkbox" data-table-plugin-action="fixed-header" aria-pressed="false">固定首行</label>';
-    result += '<label class="table-plugin__check"><input type="checkbox" data-table-plugin-action="fixed-first-column" aria-pressed="false">固定首列</label>';
+    result += '<label class="table-plugin__number">固定行数<input type="number" min="0" value="0" inputmode="numeric" data-table-plugin-action="fixed-rows" aria-label="固定行数"></label>';
+    result += '<label class="table-plugin__number">固定列数<input type="number" min="0" value="0" inputmode="numeric" data-table-plugin-action="fixed-columns" aria-label="固定列数"></label>';
     result += '<button class="table-plugin__export" type="button" data-table-plugin-action="export-csv">导出表格</button>';
     result += '</div>';
     result += '<div class="table-plugin__scroll">';

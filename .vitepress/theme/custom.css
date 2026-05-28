@@ -20,7 +20,7 @@
   padding: 8px 0;
 }
 
-.table-plugin__check {
+.table-plugin__number {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -30,11 +30,17 @@
   user-select: none;
 }
 
-.table-plugin__check input {
-  width: 14px;
-  height: 14px;
+.table-plugin__number input {
+  width: 64px;
+  height: 28px;
   margin: 0;
-  accent-color: var(--vp-c-brand-1);
+  border: 1px solid var(--vp-c-border);
+  border-radius: 6px;
+  padding: 3px 6px;
+  color: var(--vp-c-text-1);
+  background: var(--vp-c-bg);
+  font-size: 13px;
+  line-height: 1.4;
 }
 
 .table-plugin__export {
@@ -87,28 +93,25 @@
   height: auto;
 }
 
-table.table__fixed-header {
-  table-layout: auto;
+.vp-doc .table-plugin__scroll [data-table-plugin-sticky] {
+  background: var(--vp-c-bg);
+  background-clip: padding-box;
 }
 
-/* 列首永远固定在头部  */
-table.table__fixed-header thead tr th {
-  position: sticky;
-  top: 0;
-  z-index: 2;
+.vp-doc .table-plugin__scroll thead [data-table-plugin-sticky] {
   background: var(--vp-c-bg-soft);
 }
 
-table.table__fixed-first-column tr > :first-child {
-  position: sticky;
-  left: 0;
-  z-index: 1;
-  background: var(--vp-c-bg);
+.vp-doc .table-plugin__scroll [data-table-plugin-sticky-row] {
+  box-shadow: 0 1px 0 var(--vp-c-border);
+}
+
+.vp-doc .table-plugin__scroll [data-table-plugin-sticky-column] {
   box-shadow: 1px 0 0 var(--vp-c-border);
 }
 
-table.table__fixed-header.table__fixed-first-column thead tr th:first-child {
-  z-index: 3;
+.vp-doc .table-plugin__scroll [data-table-plugin-sticky-row][data-table-plugin-sticky-column] {
+  box-shadow: 1px 0 0 var(--vp-c-border), 0 1px 0 var(--vp-c-border);
 }
 
 /* 赞助按钮相关样式优化 */

@@ -11,18 +11,18 @@ export default defineConfig({
   base: '/',
   head: [
     ['meta', { name: 'keywords', content: '孕期指南,妈妈宝宝,待产准备,产后恢复,新生儿护理,母婴用品,哺乳指南,婴儿护理,孕妇健康,宝宝成长,儿保疫苗,安全座椅,婴儿推车,新生儿注意事项,过敏症状,病症护理' }],
-    ['meta', { name: 'author', content: 'MiyueFE' }],
+    ['meta', { name: 'author', content: 'Fiveonine' }],
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
     ['meta', { property: 'og:title', content: '孕期指南 - 妈妈和宝宝的全面指南' }],
-    ['meta', { property: 'og:description', content: '专业的孕期指南，涵盖待产准备、产后恢复、新生儿护理、母婴用品选择等全方位内容，为准妈妈和新手妈妈提供贴心指导。' }],
+    ['meta', { property: 'og:description', content: '专业的孕期指南，涵盖备孕产检、待产准备、产后恢复、新生儿护理、母婴用品选择等全方位内容。' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:image', content: '/images/logo.svg' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
     ['meta', { name: 'twitter:title', content: '孕期指南 - 妈妈和宝宝的全面指南' }],
-    ['meta', { name: 'twitter:description', content: '专业的孕期指南，涵盖待产准备、产后恢复、新生儿护理、母婴用品选择等全方位内容。' }],
+    ['meta', { name: 'twitter:description', content: '专业的孕期指南，涵盖备孕产检、待产准备、产后恢复、新生儿护理、母婴用品选择等全方位内容。' }],
     ['meta', { name: 'twitter:image', content: '/images/logo.svg' }],
     ['link', { rel: 'icon', href: '/pages/images/logo.png' }],
-    ['link', { rel: 'canonical', href: 'https://miyuefe.cn/' }]
+    ['link', { rel: 'canonical', href: 'https://mom-and-baby.pages.dev/' }]
   ],
   themeConfig: {
     logo: '/pages/images/logo.png',
@@ -98,7 +98,7 @@ export default defineConfig({
       label: '本页目录'
     },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/miyuesc/MomAndBabyForChina' }
+      { icon: 'github', link: 'https://github.com/Fiveo9/MomAndBabyForChina' }
     ]
   },
   markdown: {

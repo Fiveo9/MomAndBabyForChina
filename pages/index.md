@@ -21,7 +21,7 @@ hero:
 
 features:
   - title: 孕期指南
-    details: 备孕孕早期、建档产检时间表、营养体重、红旗信号、孕晚期与分娩准备（大纲空壳，持续填充）
+    details: 备孕与孕早期、建档与产检时间表、营养体重、红旗信号、孕晚期与分娩准备
   - title: 待产准备
     details: 详细的待产证件资料清单，妈妈和宝宝的住院包准备指南
   - title: 产后指南
@@ -34,7 +34,7 @@ features:
 
 ## 关于本指南
 
-这是一份面向中国家庭的母婴备忘手册。当前 fork 版本补齐「孕期」模块（建档、产检节奏、红旗信号等），并与原有的待产、产后、新生儿、用品章节衔接。
+这是一份面向中国家庭的母婴备忘手册。本站在上游开源内容基础上，补齐了「孕期」模块（建档、产检节奏、红旗信号等），并与原有的待产、产后、新生儿、用品章节衔接。
 
 > **地域说明**：孕期相关正文默认按**上海市**常见医院与办事路径整理；其他城市请以当地妇幼与建档医院为准。
 
@@ -50,4 +50,4 @@ features:
 
 ---
 
-*原作者：MiyueFE · 本 fork：Fiveo9（孕期模块扩展中）*
+*基于 MiyueFE 开源项目 fork · 维护：[Fiveo9/MomAndBabyForChina](https://github.com/Fiveo9/MomAndBabyForChina) · 站点：[mom-and-baby.pages.dev](https://mom-and-baby.pages.dev/)*

@@ -2,7 +2,21 @@
 
 主要记录关于妈妈的孕期、待产、生产后，以及宝宝婴幼儿时期的注意事项。
 
-当前 fork（Fiveo9）扩展了「孕期」模块（大纲空壳，持续填充）。孕期正文默认按**上海市**常见路径整理，详见各页开头的地域说明。
+本仓库为 [miyuesc/MomAndBabyForChina](https://github.com/miyuesc/MomAndBabyForChina) 的 fork（Fiveo9），扩展了「孕期」模块首版正文。孕期内容默认按**上海市**常见路径整理，详见各页开头的地域说明。
+
+- **在线站点**：[https://mom-and-baby.pages.dev/](https://mom-and-baby.pages.dev/)
+- **本仓库**：[https://github.com/Fiveo9/MomAndBabyForChina](https://github.com/Fiveo9/MomAndBabyForChina)
+
+## 本地开发
+
+```bash
+pnpm install
+pnpm run dev      # 开发
+pnpm run build    # 产出 dist/
+pnpm run preview  # 预览 dist
+```
+
+Cloudflare Pages：构建命令使用 **pnpm@10**（兼容 Node 20），输出目录 `dist`。详见仓库部署说明或 Pages 项目设置。
 
 ## 目录
 
@@ -35,7 +49,3 @@
 - [20-常见品牌与价格](pages/20-常见品牌与价格.md)
 - [80-育儿优惠政策](pages/80-育儿优惠政策.md)
 - [90-参考资料](pages/90-参考资料.md)
-
-#### 赞助
-
-<img src="https://i0.hdslb.com/bfs/openplatform/82d1a037e4c40044188bfbfffd71b867b3ede97c.jpg" width="400" />

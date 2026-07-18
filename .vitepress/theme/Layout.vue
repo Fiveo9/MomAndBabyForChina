@@ -3,8 +3,6 @@ import DefaultTheme from "vitepress/theme";
 import { onBeforeUnmount, onMounted } from "vue";
 import { useRouter } from "vitepress";
 import mediumZoom from "medium-zoom";
-import SponsorButton from "./components/SponsorButton.vue";
-
 const { Layout } = DefaultTheme;
 const router = useRouter();
 
@@ -276,7 +274,6 @@ router.onAfterRouteChanged = () => {
 
 <template>
   <Layout />
-  <SponsorButton />
 </template>
 
 <style>

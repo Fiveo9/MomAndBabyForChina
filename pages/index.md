@@ -4,17 +4,14 @@ layout: home
 hero:
   name: "孕期指南"
   text: "妈妈和宝宝的全面指南"
-  tagline: "从备孕、产检到待产与育儿（正文默认按上海常见路径整理）"
+  tagline: "从备孕、产检到待产与育儿的完整手册"
   image:
     src: ./logo.png
     alt: 孕期指南 Logo
   actions:
     - theme: brand
-      text: 孕期总览
+      text: 开始阅读
       link: /P00-孕期总览
-    - theme: alt
-      text: 建档与产检
-      link: /P02-建档与产检时间表
     - theme: alt
       text: GitHub
       link: https://github.com/Fiveo9/MomAndBabyForChina
@@ -35,8 +32,6 @@ features:
 ## 关于本指南
 
 这是一份面向中国家庭的母婴备忘手册。本站在上游开源内容基础上，补齐了「孕期」模块（建档、产检节奏、红旗信号等），并与原有的待产、产后、新生儿、用品章节衔接。
-
-> **地域说明**：孕期相关正文默认按**上海市**常见医院与办事路径整理；其他城市请以当地妇幼与建档医院为准。
 
 > PS: 千人千面，每个宝宝都有自己的身体素质和喜好。本指南主要作用是 **引导准备与提供参考**，具体检查、用药、分娩决策以建档医院与执业医师为准。
 

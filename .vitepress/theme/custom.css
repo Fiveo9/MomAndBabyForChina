@@ -2,6 +2,29 @@
   --vp-layout-max-width: 90vw;
 }
 
+/* 首页 features：宽屏下 5 张卡片尽量同一行 */
+.VPHomeFeatures .container .items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: stretch;
+}
+
+@media (min-width: 1280px) {
+  .VPHomeFeatures .container .items {
+    flex-wrap: nowrap;
+  }
+
+  .VPHomeFeatures .container .items .item {
+    width: 20% !important;
+    max-width: 20% !important;
+    flex: 1 1 20%;
+  }
+
+  .VPHomeFeatures .container .items .item .VPFeature {
+    height: 100%;
+  }
+}
+
 /* 内容区铺满 */
 .VPDoc.has-aside .content-container {
   max-width: 100% !important;
@@ -112,35 +135,4 @@
 
 .vp-doc .table-plugin__scroll [data-table-plugin-sticky-row][data-table-plugin-sticky-column] {
   box-shadow: 1px 0 0 var(--vp-c-border), 0 1px 0 var(--vp-c-border);
-}
-
-/* 赞助按钮相关样式优化 */
-.sponsor-button-container {
-  /* 确保按钮不会被其他元素遮挡 */
-  z-index: 100;
-}
-
-/* 确保弹窗在最顶层 */
-.sponsor-modal-overlay {
-  z-index: 1000;
-}
-
-/* 防止赞助按钮与侧边栏重叠 */
-@media (min-width: 1440px) {
-  .sponsor-button-container {
-    right: calc((100vw - var(--vp-layout-max-width)) / 2 - 60px);
-  }
-}
-
-/* 当侧边栏展开时调整按钮位置 */
-.VPSidebar.open~.sponsor-button-container {
-  right: 280px;
-  transition: right 0.3s ease;
-}
-
-/* 优化移动端体验 */
-@media (max-width: 767px) {
-  .sponsor-button-container {
-    display: none !important;
-  }
 }

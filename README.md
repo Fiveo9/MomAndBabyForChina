@@ -4,7 +4,7 @@
 
 本仓库为 [miyuesc/MomAndBabyForChina](https://github.com/miyuesc/MomAndBabyForChina) 的 fork（Fiveo9），扩展了「孕期」模块首版正文。孕期内容默认按**上海市**常见路径整理，详见各页开头的地域说明。
 
-- **在线站点**：[https://mom-and-baby.pages.dev/](https://mom-and-baby.pages.dev/)
+- **在线站点**：[https://mom-and-baby.lyrango.com/](https://mom-and-baby.lyrango.com/)
 - **本仓库**：[https://github.com/Fiveo9/MomAndBabyForChina](https://github.com/Fiveo9/MomAndBabyForChina)
 
 ## 本地开发

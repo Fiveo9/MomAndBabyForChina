@@ -45,4 +45,4 @@ features:
 
 ---
 
-*基于 MiyueFE 开源项目 fork · 维护：[Fiveo9/MomAndBabyForChina](https://github.com/Fiveo9/MomAndBabyForChina) · 站点：[mom-and-baby.pages.dev](https://mom-and-baby.pages.dev/)*
+*基于 MiyueFE 开源项目 fork · 维护：[Fiveo9/MomAndBabyForChina](https://github.com/Fiveo9/MomAndBabyForChina) · 站点：[mom-and-baby.lyrango.com](https://mom-and-baby.lyrango.com/)*

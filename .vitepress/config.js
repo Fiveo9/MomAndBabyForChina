@@ -22,7 +22,7 @@ export default defineConfig({
     ['meta', { name: 'twitter:description', content: '专业的孕期指南，涵盖备孕产检、待产准备、产后恢复、新生儿护理、母婴用品选择等全方位内容。' }],
     ['meta', { name: 'twitter:image', content: '/images/logo.svg' }],
     ['link', { rel: 'icon', href: '/pages/images/logo.png' }],
-    ['link', { rel: 'canonical', href: 'https://mom-and-baby.pages.dev/' }]
+    ['link', { rel: 'canonical', href: 'https://mom-and-baby.lyrango.com/' }]
   ],
   themeConfig: {
     logo: '/pages/images/logo.png',

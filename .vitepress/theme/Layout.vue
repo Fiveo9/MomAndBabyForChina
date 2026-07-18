@@ -204,6 +204,7 @@ const syncTablePluginControls = (root) => {
   rowsInput.value = String(fixedRows);
   columnsInput.value = String(fixedColumns);
 
+  root.classList.toggle("is-pinned-scroll", fixedRows > 0 || fixedColumns > 0);
   applyTableSticky(table, fixedRows, fixedColumns);
 };
 

@@ -21,11 +21,11 @@ export default defineConfig({
     ['meta', { name: 'twitter:title', content: '孕期指南 - 妈妈和宝宝的全面指南' }],
     ['meta', { name: 'twitter:description', content: '专业的孕期指南，涵盖备孕产检、待产准备、产后恢复、新生儿护理、母婴用品选择等全方位内容。' }],
     ['meta', { name: 'twitter:image', content: '/images/logo.svg' }],
-    ['link', { rel: 'icon', href: '/pages/images/logo.png' }],
+    ['link', { rel: 'icon', href: '/logo.png' }],
     ['link', { rel: 'canonical', href: 'https://mom-and-baby.lyrango.com/' }]
   ],
   themeConfig: {
-    logo: '/pages/images/logo.png',
+    logo: '/logo.png',
     nav: [
       { text: '首页', link: '/' },
       { text: '孕期', link: '/P00-孕期总览' },
